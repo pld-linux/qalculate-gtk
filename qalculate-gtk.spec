@@ -13,6 +13,7 @@ BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnome-devel >= 2.0.0
+BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libqalculate-devel = %{version}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.3.8
