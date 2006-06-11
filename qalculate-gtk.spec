@@ -8,19 +8,22 @@ Group:		Applications/Math
 Source0:	http://dl.sourceforge.net/qalculate/%{name}-%{version}.tar.gz
 # Source0-md5:	ac9adea6799ea4019b5a45869cff3cff
 URL:		http://qalculate.sourceforge.net/
+BuildRequires:	automake
 BuildRequires:	cln-devel >= 1.1.0
 BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	intltool
-BuildRequires:	libglade2-devel
+BuildRequires:	libglade2-devel >= 2.0
 BuildRequires:	libgnome-devel >= 2.0.0
 BuildRequires:	libgnomeui-devel >= 2.0.0
-BuildRequires:	libqalculate-devel = %{version}
+BuildRequires:	libqalculate-devel >= %{version}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.3.8
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.1.4
 Requires(post,postun):	scrollkeeper
 Requires:	gnuplot
+Requires:	libqalculate >= %{version}
 Provides:	qalculate = %{version}-%{release}
 Obsoletes:	qalculate
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
