@@ -1,5 +1,5 @@
 Summary:	Modern desktop calculator
-Summary(pl):	Nowoczesny kalkulator
+Summary(pl.UTF-8):   Nowoczesny kalkulator
 Name:		qalculate-gtk
 Version:	0.9.4
 Release:	1
@@ -33,10 +33,10 @@ Qalculate is a modern multi-purpose desktop calculator. It is small
 and simple to use but with much power. Features include arbitrary
 precision, plotting, and a graphical interface (GTK+).
 
-%description -l pl
-Qalculate jest nowoczesnym, wielozadaniowym kalkulatorem. Jest ma≥y i
-prosty w uøyciu, lecz posiada duøe moøliwo∂ci. Podstawowymi cechami
-programu s± nieograniczona precyzja, moøliwo∂Ê rysowania wykresÛw i
+%description -l pl.UTF-8
+Qalculate jest nowoczesnym, wielozadaniowym kalkulatorem. Jest ma≈Çy i
+prosty w u≈ºyciu, lecz posiada du≈ºe mo≈ºliwo≈õci. Podstawowymi cechami
+programu sƒÖ nieograniczona precyzja, mo≈ºliwo≈õƒá rysowania wykres√≥w i
 graficzny interfejs (GTK+).
 
 %prep
