@@ -1,5 +1,5 @@
 Summary:	Modern desktop calculator
-Summary(pl.UTF-8):   Nowoczesny kalkulator
+Summary(pl.UTF-8):	Nowoczesny kalkulator
 Name:		qalculate-gtk
 Version:	0.9.4
 Release:	1
