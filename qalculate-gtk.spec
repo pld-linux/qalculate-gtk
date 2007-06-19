@@ -1,12 +1,12 @@
 Summary:	Modern desktop calculator
 Summary(pl.UTF-8):	Nowoczesny kalkulator
 Name:		qalculate-gtk
-Version:	0.9.4
+Version:	0.9.5
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://dl.sourceforge.net/qalculate/%{name}-%{version}.tar.gz
-# Source0-md5:	ac9adea6799ea4019b5a45869cff3cff
+# Source0-md5:	497ebf325694379682dd933f7a79d1ff
 URL:		http://qalculate.sourceforge.net/
 BuildRequires:	automake
 BuildRequires:	cln-devel >= 1.1.0
