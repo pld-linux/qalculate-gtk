@@ -8,6 +8,7 @@ Group:		Applications/Math
 Source0:	http://downloads.sourceforge.net/qalculate/%{name}-%{version}.tar.gz
 # Source0-md5:	7a7ab4680e285690ca3625992f477f0f
 Patch0:		desktop.patch
+Patch1:		qalculate-wformat-security.patch
 URL:		http://qalculate.sourceforge.net/
 BuildRequires:	automake
 BuildRequires:	cln-devel >= 1.1.0
@@ -40,7 +41,8 @@ graficzny interfejs (GTK+).
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p0
+%patch1 -p0
 
 %build
 %configure

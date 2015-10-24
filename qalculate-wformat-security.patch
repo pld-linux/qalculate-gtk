@@ -1,0 +1,48 @@
+Description: Fix compiling with -Werror=format-security.
+ Prevents format string attacks.
+Author: Simon Ruderich <simon@ruderich.org>
+Last-Update: 2013-05-23
+
+--- src/callbacks.cc
++++ src/callbacks.cc.new
+@@ -388,12 +388,12 @@ void wrap_expression_selection() {
+ }
+ 
+ void show_message(const gchar *text, GtkWidget *win) {
+-	GtkWidget *edialog = gtk_message_dialog_new(GTK_WINDOW(win), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, text);
++	GtkWidget *edialog = gtk_message_dialog_new(GTK_WINDOW(win), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", text);
+ 	gtk_dialog_run(GTK_DIALOG(edialog));
+ 	gtk_widget_destroy(edialog);
+ }
+ bool ask_question(const gchar *text, GtkWidget *win) {
+-	GtkWidget *edialog = gtk_message_dialog_new(GTK_WINDOW(win), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_YES_NO, text);
++	GtkWidget *edialog = gtk_message_dialog_new(GTK_WINDOW(win), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_YES_NO, "%s", text);
+ 	int question_answer = gtk_dialog_run(GTK_DIALOG(edialog));
+ 	gtk_widget_destroy(edialog);
+ 	return question_answer == GTK_RESPONSE_YES;
+@@ -654,7 +654,7 @@ void display_errors(GtkTextIter *iter =
+ 					GTK_DIALOG_DESTROY_WITH_PARENT,
+ 					GTK_MESSAGE_INFO,
+ 					GTK_BUTTONS_CLOSE,
+-					CALCULATOR->message()->message().c_str());
++					"%s", CALCULATOR->message()->message().c_str());
+ 			gtk_dialog_run(GTK_DIALOG(edialog));
+ 			gtk_widget_destroy(edialog);
+ 		}
+@@ -667,14 +667,14 @@ void display_errors(GtkTextIter *iter =
+ 					GTK_DIALOG_DESTROY_WITH_PARENT,
+ 					GTK_MESSAGE_ERROR,
+ 					GTK_BUTTONS_CLOSE,
+-					str.c_str());
++					"%s", str.c_str());
+ 		} else {
+ 			edialog = gtk_message_dialog_new(
+ 					GTK_WINDOW(win),
+ 					GTK_DIALOG_DESTROY_WITH_PARENT,
+ 					GTK_MESSAGE_WARNING,
+ 					GTK_BUTTONS_CLOSE,
+-					str.c_str());
++					"%s", str.c_str());
+ 		}
+ 
+ 		gtk_dialog_run(GTK_DIALOG(edialog));
