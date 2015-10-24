@@ -7,6 +7,7 @@ License:	GPL
 Group:		Applications/Math
 Source0:	http://downloads.sourceforge.net/qalculate/%{name}-%{version}.tar.gz
 # Source0-md5:	7a7ab4680e285690ca3625992f477f0f
+Patch0:		desktop.patch
 URL:		http://qalculate.sourceforge.net/
 BuildRequires:	automake
 BuildRequires:	cln-devel >= 1.1.0
@@ -39,6 +40,7 @@ graficzny interfejs (GTK+).
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
