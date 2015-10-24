@@ -1,12 +1,12 @@
 Summary:	Modern desktop calculator
 Summary(pl.UTF-8):	Nowoczesny kalkulator
 Name:		qalculate-gtk
-Version:	0.9.5
-Release:	1
+Version:	0.9.7
+Release:	0.1
 License:	GPL
 Group:		Applications/Math
-Source0:	http://dl.sourceforge.net/qalculate/%{name}-%{version}.tar.gz
-# Source0-md5:	497ebf325694379682dd933f7a79d1ff
+Source0:	http://downloads.sourceforge.net/qalculate/%{name}-%{version}.tar.gz
+# Source0-md5:	7a7ab4680e285690ca3625992f477f0f
 URL:		http://qalculate.sourceforge.net/
 BuildRequires:	automake
 BuildRequires:	cln-devel >= 1.1.0
@@ -24,8 +24,6 @@ BuildRequires:	scrollkeeper >= 0.1.4
 Requires(post,postun):	scrollkeeper
 Requires:	gnuplot
 Requires:	libqalculate >= %{version}
-Provides:	qalculate = %{version}-%{release}
-Obsoletes:	qalculate
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,13 +41,11 @@ graficzny interfejs (GTK+).
 %setup -q
 
 %build
-cp -f /usr/share/automake/config.sub .
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
