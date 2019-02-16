@@ -1,15 +1,13 @@
 Summary:	Modern desktop calculator
 Summary(pl.UTF-8):	Nowoczesny kalkulator
 Name:		qalculate-gtk
-Version:	0.9.7
-Release:	2
+Version:	2.9.0
+Release:	1
 License:	GPL
 Group:		Applications/Math
-Source0:	http://downloads.sourceforge.net/qalculate/%{name}-%{version}.tar.gz
-# Source0-md5:	7a7ab4680e285690ca3625992f477f0f
-Patch0:		desktop.patch
-Patch1:		qalculate-wformat-security.patch
-URL:		http://qalculate.sourceforge.net/
+Source0:	https://github.com/Qalculate/qalculate-gtk/releases/download/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	1d7c7797eb01d601f6b9f4f5ac4f3bfc
+URL:		http://qalculate.github.io/
 BuildRequires:	automake
 BuildRequires:	cln-devel >= 1.1.0
 BuildRequires:	gtk+2-devel >= 2:2.4.0
@@ -17,7 +15,7 @@ BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 2.0
 BuildRequires:	libgnome-devel >= 2.0.0
 BuildRequires:	libgnomeui-devel >= 2.0.0
-BuildRequires:	libqalculate-devel >= 0.9.7-3
+BuildRequires:	libqalculate-devel >= 2.8.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.3.8
 BuildRequires:	pkgconfig
@@ -41,8 +39,6 @@ graficzny interfejs (GTK+).
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p0
 
 %build
 %configure
@@ -66,9 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
+%doc AUTHORS ChangeLog NEWS README TODO doc/html
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/*.desktop
-%{_datadir}/%{name}
 %{_pixmapsdir}/*.png
-%{_omf_dest_dir}/%{name}
+%{_datadir}/appdata/qalculate-gtk.appdata.xml
