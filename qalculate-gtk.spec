@@ -1,12 +1,12 @@
 Summary:	Modern desktop calculator
 Summary(pl.UTF-8):	Nowoczesny kalkulator
 Name:		qalculate-gtk
-Version:	2.9.0
+Version:	3.1.0
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	https://github.com/Qalculate/qalculate-gtk/releases/download/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	1d7c7797eb01d601f6b9f4f5ac4f3bfc
+# Source0-md5:	92306458a4e8afd8ee6a0276872bf6dc
 URL:		http://qalculate.github.io/
 BuildRequires:	automake
 BuildRequires:	cln-devel >= 1.1.0
@@ -15,7 +15,7 @@ BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 2.0
 BuildRequires:	libgnome-devel >= 2.0.0
 BuildRequires:	libgnomeui-devel >= 2.0.0
-BuildRequires:	libqalculate-devel >= 2.8.0
+BuildRequires:	libqalculate-devel >= 3.1.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.3.8
 BuildRequires:	pkgconfig
