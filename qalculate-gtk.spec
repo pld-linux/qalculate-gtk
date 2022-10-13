@@ -1,28 +1,25 @@
 Summary:	Modern desktop calculator
 Summary(pl.UTF-8):	Nowoczesny kalkulator
 Name:		qalculate-gtk
-Version:	3.1.0
+Version:	4.3.0
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	https://github.com/Qalculate/qalculate-gtk/releases/download/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	92306458a4e8afd8ee6a0276872bf6dc
+# Source0-md5:	c9524b306c82476d146a5925b35c89da
 URL:		http://qalculate.github.io/
 BuildRequires:	automake
-BuildRequires:	cln-devel >= 1.1.0
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gdk-pixbuf2-devel
+BuildRequires:	glib2-devel >= 2.4
+BuildRequires:	gtk+3-devel >= 3.12
 BuildRequires:	intltool
-BuildRequires:	libglade2-devel >= 2.0
-BuildRequires:	libgnome-devel >= 2.0.0
-BuildRequires:	libgnomeui-devel >= 2.0.0
-BuildRequires:	libqalculate-devel >= 3.1.0
+BuildRequires:	libqalculate-devel >= 4.2.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.3.8
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	scrollkeeper >= 0.1.4
+BuildRequires:	rpmbuild(macros) >= 2.000
 Requires(post,postun):	scrollkeeper
-Requires:	libqalculate >= 0.9.7-3
+Requires:	libqalculate >= 4.3.0
 Suggests:	gnuplot
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,6 +34,19 @@ prosty w użyciu, lecz posiada duże możliwości. Podstawowymi cechami
 programu są nieograniczona precyzja, możliwość rysowania wykresów i
 graficzny interfejs (GTK+).
 
+%package search-provider
+Summary:	Qalculate-gtk search provider for GNOME Shell
+Summary(pl.UTF-8):	Usługa wyszukiwania Qalculate-gtk dla powłoki GNOME
+Group:		Applications/Math
+Requires:	%{name} = %{version}-%{release}
+Requires:	gnome-shell >= 3
+
+%description search-provider
+Qalculate-gtk search provider for GNOME Shell.
+
+%description search-provider -l pl.UTF-8
+Usługa wyszukiwania Qalculate-gtk dla powłoki GNOME.
+
 %prep
 %setup -q
 
@@ -48,6 +58,9 @@ graficzny interfejs (GTK+).
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# packaged in doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/qalculate-gtk
 
 %find_lang %{name} --with-gnome
 
@@ -65,5 +78,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO doc/html
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/*.desktop
-%{_pixmapsdir}/*.png
-%{_datadir}/appdata/qalculate-gtk.appdata.xml
+%{_mandir}/man1/qalculate-gtk.1.*
+%{_iconsdir}/hicolor/*x*/apps/qalculate.png
+%{_iconsdir}/hicolor/scalable/apps/qalculate.svg
+%{_datadir}/metainfo/qalculate-gtk.appdata.xml
+
+%files search-provider
+%defattr(644,root,root,755)
+%attr(755,roor,root) %{_libexecdir}/qalculate-search-provider
+%{_datadir}/dbus-1/services/io.github.Qalculate.SearchProvider.service
+%{_datadir}/gnome-shell/search-providers/io.github.Qalculate.search-provider.ini
