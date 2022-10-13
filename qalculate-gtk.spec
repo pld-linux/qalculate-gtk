@@ -7,7 +7,7 @@ License:	GPL
 Group:		Applications/Math
 Source0:	https://github.com/Qalculate/qalculate-gtk/releases/download/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	c9524b306c82476d146a5925b35c89da
-URL:		http://qalculate.github.io/
+URL:		https://qalculate.github.io/
 BuildRequires:	automake
 BuildRequires:	gdk-pixbuf2-devel
 BuildRequires:	glib2-devel >= 2.4
