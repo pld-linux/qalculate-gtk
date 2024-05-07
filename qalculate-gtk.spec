@@ -10,7 +10,7 @@ Source0:	https://github.com/Qalculate/qalculate-gtk/releases/download/v%{version
 URL:		https://qalculate.github.io/
 BuildRequires:	automake
 BuildRequires:	gdk-pixbuf2-devel
-BuildRequires:	glib2-devel >= 2.4
+BuildRequires:	glib2-devel >= 1:2.4
 BuildRequires:	gtk+3-devel >= 3.12
 BuildRequires:	intltool
 BuildRequires:	libqalculate-devel >= 5.1.0
@@ -18,7 +18,10 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.3.8
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 2.000
-Requires(post,postun):	scrollkeeper
+Requires(post,postun):	gtk-update-icon-cache
+Requires:	glib2 >= 1:2.4
+Requires:	gtk+3 >= 3.12
+Requires:	hicolor-icon-cache
 Requires:	libqalculate >= 5.1.0
 Suggests:	gnuplot
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,10 +74,10 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%scrollkeeper_update_post
+%update_icon_cache hicolor
 
 %postun
-%scrollkeeper_update_postun
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
