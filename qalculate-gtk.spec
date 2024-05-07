@@ -56,13 +56,14 @@ Usługa wyszukiwania Qalculate-gtk dla powłoki GNOME.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 # packaged in doc
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/qalculate-gtk
 
-%{__mv} $RPM_BUILD_ROOT/%{_localedir}/pt{_PT,}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/pt{_PT,}
 
 %find_lang %{name} --with-gnome
 
@@ -78,9 +79,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO doc/html
-%attr(755,root,root) %{_bindir}/*
-%{_desktopdir}/*.desktop
-%{_mandir}/man1/qalculate-gtk.1.*
+%attr(755,root,root) %{_bindir}/qalculate-gtk
+%{_desktopdir}/qalculate-gtk.desktop
+%{_mandir}/man1/qalculate-gtk.1*
 %{_iconsdir}/hicolor/*x*/apps/qalculate.png
 %{_iconsdir}/hicolor/scalable/apps/qalculate.svg
 %{_datadir}/metainfo/qalculate-gtk.appdata.xml
