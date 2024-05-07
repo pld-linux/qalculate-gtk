@@ -2,7 +2,7 @@ Summary:	Modern desktop calculator
 Summary(pl.UTF-8):	Nowoczesny kalkulator
 Name:		qalculate-gtk
 Version:	5.1.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Math
 Source0:	https://github.com/Qalculate/qalculate-gtk/releases/download/v%{version}/%{name}-%{version}.tar.gz
@@ -61,6 +61,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # packaged in doc
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/qalculate-gtk
+
+%{__mv} $RPM_BUILD_ROOT/%{_localedir}/pt{_PT,}
 
 %find_lang %{name} --with-gnome
 
